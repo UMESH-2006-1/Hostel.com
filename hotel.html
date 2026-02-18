@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Vibe - More Than a Hostel, It's a Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+         :root {
+            --primary-blue: #4a90e2;
+            --soft-blue: #87ceeb;
+            --warm-yellow: #ffd700;
+            --light-yellow: #fffacd;
+            --calm-white: #f5f7fa;
+            --dark-text: #2c3e50;
+            --light-gray: #ecf0f1;
+            --accent-orange: #ff9999;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--dark-text);
+            background: linear-gradient(135deg, var(--calm-white) 0%, #e8f4f8 100%);
+            overflow-x: hidden;
+        }
+        /* Navigation Bar */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--primary-blue), var(--warm-yellow));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .sound-toggle {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .sound-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+        }
+        /* Hero Section */
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            margin-top: 60px;
+            overflow: hidden;
+        }
+        
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 100%), url('assets/images/hostel-team.jpg') center/cover;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        
+        .hero-featured-image {
+            display: none;
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateY(-50%) translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(-50%) translateX(0);
+            }
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .float-item {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-50px) rotate(180deg);
+            }
+        }
+        
+        .hero-content {
+            z-index: 10;
+            animation: slideInUp 1s ease-out;
+            max-width: 800px;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out 0.2s both;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 1;
+            animation: fadeInDown 1s ease-out 0.4s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--warm-yellow);
+            color: var(--dark-text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            animation: fadeInDown 1s ease-out 0.6s both;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+        /* Section Styles */
+        
+        section {
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-blue);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--warm-yellow));
+            border-radius: 2px;
+        }
+        /* History Timeline */
+        
+        #history {
+            background: linear-gradient(135deg, white 0%, var(--light-yellow) 100%);
+        }
+        
+        .timeline {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+        
+        .timeline-item:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .timeline-item:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .timeline-item:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            background: var(--warm-yellow);
+            border-radius: 50%;
+            position: relative;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            border: 3px solid var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--dark-text);
+        }
+        
+        .timeline-dot::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            border-radius: 50%;
+            border: 2px solid var(--primary-blue);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+        /* Student Life & Happiness */
+        
+        #life {
+            background: linear-gradient(135deg, var(--calm-white) 0%, var(--light-yellow) 100%);
+        }
+        
+        .life-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .life-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+        }
+        
+        .life-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.3);
+        }
+        
+        .life-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.25), transparent);
+            transition: left 0.6s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+        }
+        
+        .life-card:hover::before {
+            left: 100%;
+        }
+        
+        .life-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        .life-icon:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .life-icon:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .life-icon:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        
+        .life-icon:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes bounce {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .life-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .life-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        /* Study & Growth Zone */
+        
+        #growth {
+            background: linear-gradient(140deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+        
+        #growth .section-title {
+            color: var(--warm-yellow);
+        }
+        
+        #growth .section-title::after {
+            background: linear-gradient(90deg, var(--warm-yellow), var(--primary-blue));
+        }
+        
+        .growth-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            text-align: left;
+        }
+        
+        .growth-img {
+            width: 50%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.25);
+            transition: transform 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .growth-quotes {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        
+        .quote-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--warm-yellow);
+            padding: 1.5rem;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            animation: slideInRight 0.8s ease-out forwards;
+            transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            transform: translateX(0);
+        }
+        
+        .quote-box:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+            border-left-width: 6px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+        }
+        
+        .quote-box:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .quote-box:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .quote-box:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .quote-box p {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .quote-author {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        /* Daily Moments Flow */
+        
+        #moments {
+            background: linear-gradient(135deg, var(--calm-white) 0%, var(--light-yellow) 100%);
+        }
+        
+        .moments-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+        }
+        
+        .moment-box {
+            flex: 1;
+            min-width: 250px;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: scaleIn 0.6s ease-out;
+            transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            transform: translateY(0);
+        }
+        
+        .moment-box:hover {
+            transform: translateY(-12px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.25);
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .moment-box:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+        
+        .moment-box:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+        
+        .moment-box:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        
+        .moment-box:nth-child(4) {
+            animation-delay: 0.7s;
+        }
+        
+        .moment-time {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--warm-yellow);
+            margin-bottom: 0.5rem;
+        }
+        
+        .moment-title {
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .moment-desc {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--warm-yellow);
+            opacity: 0.6;
+            animation: arrowFloat 2s ease-in-out infinite;
+        }
+        
+        @keyframes arrowFloat {
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(10px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .moments-flow {
+                flex-direction: column;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 0;
+            }
+        }
+        /* Student Voices */
+        
+        #voices {
+            background: linear-gradient(135deg, #f8f9ff 0%, var(--calm-white) 100%);
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            transform: translateX(0);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateX(10px) translateY(-8px);
+            box-shadow: 0 15px 45px rgba(74, 144, 226, 0.25);
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--warm-yellow));
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: expandWidth 0.6s ease-out forwards;
+            transition: transform 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+        }
+        
+        @keyframes expandWidth {
+            to {
+                transform: scaleX(1);
+            }
+        }
+        
+        .testimonial-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .stars {
+            color: var(--warm-yellow);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .student-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .student-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--warm-yellow));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        
+        .student-name {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+        
+        .student-year {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        /* Gallery */
+        
+        #gallery {
+            background: linear-gradient(135deg, white 0%, var(--light-yellow) 100%);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover {
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3);
+            transform: scale(1.03);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: all 0.5s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 1.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.2) translateX(15px) translateY(-8px) rotateY(-5deg);
+            filter: brightness(1.4) saturate(1.1);
+            box-shadow: inset 0 0 30px rgba(74, 144, 226, 0.3);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transform: translateX(-30px);
+        }
+        
+        .gallery-overlay-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .gallery-overlay-desc {
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.9;
+            text-align: center;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        /* Photo Tour Section */
+        
+        #photos {
+            background: linear-gradient(135deg, #f0f4f8 0%, var(--calm-white) 100%);
+        }
+        
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .photo-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            aspect-ratio: 1;
+            background: white;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-15px) rotateY(-8deg);
+            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.35);
+        }
+        
+        .photo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+        }
+        
+        .photo-card:hover .photo-image {
+            transform: scale(1.25) translateY(-12px) translateX(8px) rotate(2deg);
+            filter: brightness(1.3) saturate(1.2) contrast(1.1);
+        }
+        
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.6), transparent);
+            color: white;
+            padding: 2rem 1.5rem 1.5rem;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            transform: translateY(40px);
+        }
+        
+        .photo-card:hover .photo-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .photo-caption h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            animation: slideInLeft 0.4s ease-out 0.1s both;
+        }
+        
+        .photo-caption p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.5;
+            animation: slideInLeft 0.4s ease-out 0.2s both;
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        /* Join Section */
+        
+        #join {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--soft-blue) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        #join .section-title {
+            color: white;
+        }
+        
+        .join-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .join-cta {
+            padding: 1.2rem 3rem;
+            background: var(--warm-yellow);
+            color: var(--dark-text);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            display: inline-block;
+            animation: pulse-button 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-button {
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 0 0 10px rgba(255, 215, 0, 0);
+            }
+        }
+        
+        .join-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+        /* Footer */
+        
+        footer {
+            background: var(--dark-text);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        footer p {
+            opacity: 0.8;
+        }
+        /* Scroll Progress Bar */
+        
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--warm-yellow));
+            z-index: 999;
+        }
+        /* Responsive */
+        
+        .hero-featured-image {
+            perspective: 1200px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            .hero-title {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .growth-container {
+                grid-template-columns: 1fr;
+            }
+            .timeline-item {
+                margin-bottom: 2rem;
+            }
+            .moments-flow {
+                flex-direction: column;
+            }
+            .hero-featured-image {
+                width: 280px;
+                height: 280px;
+                right: 2%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .hero {
+                margin-top: 120px;
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            section {
+                padding: 2rem 1rem;
+            }
+        }
+        /* Smooth Transitions */
+        
+        a {
+            transition: all 0.3s ease;
+        }
+        /* Loading Animation */
+        
+        .loader {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">🏠 Home Vibe</div>
+        <ul class="nav-links">
+            <li><a href="#growth">Growth</a></li>
+            <li><a href="#moments">Moments</a></li>
+            <li><a href="#voices">Voices</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#photos">Photos</a></li>
+            <li><a href="#join">Join</a></li>
+        </ul>
+        <button class="sound-toggle" id="soundToggle">🔊 Sound ON</button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.35) 100%), url('E:/assets/images/hostel-team.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; background-repeat: no-repeat;"></div>
+        <div class="floating-elements" id="floatingElements"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">More Than a Hostel</h1>
+            <p class="hero-subtitle">It's a Home</p>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.95; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); font-weight: 500;">Where friendships are forged, dreams are chased, and memories are made</p>
+            <button class="cta-button" onclick="document.getElementById('growth').scrollIntoView({ behavior: 'smooth' });">Explore Our Story</button>
+        </div>
+    </section>
+
+
+
+    <!-- Study & Growth Zone -->
+    <section id="growth">
+        <h2 class="section-title">Study & Personal Growth</h2>
+        <div class="growth-container">
+            <!-- Left Side: Image -->
+            <div>
+                <img src="E:\IMG-20260217-WA0013.jpg" alt="Blessings for discipline and growth" class="growth-img">
+            </div>
+
+            <!-- Right Side: Text Content -->
+            <div>
+                <h3 style="color: var(--warm-yellow); font-size: 1.8rem; margin-bottom: 1rem;">With Blessings Comes Discipline</h3>
+                <p style="font-size: 0.95rem; line-height: 1.5; margin-bottom: 1.5rem; color: var(--dark-text);">
+                    Our study zone is designed to cultivate focus, discipline, and personal growth. With quiet spaces, high-speed internet, and a supportive community, we provide the ideal environment for academic and professional success.
+                </p>
+                <div class="growth-quotes">
+                    <div class="quote-box">
+                        <p>"Discipline is the bridge between goals and accomplishment."</p>
+                        <div class="quote-author">— Home Vibe</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daily Hostel Moments -->
+    <section id="moments">
+        <h2 class="section-title">A Day in the Life</h2>
+        <div class="moments-flow">
+            <div class="moment-box">
+                <div class="moment-time">🌅 ~6 AM</div>
+                <div class="moment-title">Morning</div>
+                <div class="moment-desc">Fresh starts and positive vibes. Some hit the gym, others grab tea from the common room.</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="moment-box">
+                <div class="moment-time">📚 ~10 AM</div>
+                <div class="moment-title">Study Hour</div>
+                <div class="moment-desc">Focused minds, quiet libraries, and coffee. This is where dreams take shape.</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="moment-box">
+                <div class="moment-time">🍽️ ~6 PM</div>
+                <div class="moment-title">Evening</div>
+                <div class="moment-desc">Dining together, sharing stories, playing games. Community time is sacred here.</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="moment-box">
+                <div class="moment-time">🌙 ~11 PM</div>
+                <div class="moment-title">Night Study</div>
+                <div class="moment-desc">The late-night grind. Exams, projects, and dreams. Together, we conquer the night.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Student Voices -->
+    <section id="voices">
+        <h2 class="section-title">Student Voices</h2>
+        <div class="testimonials">
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Home Vibe is not just a hostel; it's where I found my second family. The support from my roommates during tough times was incredible."</p>
+                <div class="student-info">
+                    <div class="student-avatar">A</div>
+                    <div>
+                        <div class="student-name">Umesh </div>
+                        <div class="student-year">1st Year Engineering</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The facilities here are amazing, but the people make it truly special. I've made friends from 15 different countries!"</p>
+                <div class="student-info">
+                    <div class="student-avatar">R</div>
+                    <div>
+                        <div class="student-name">Rohan</div>
+                        <div class="student-year">2nd Year Commerce</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"This place helped me grow as a person. From managing my studies to balancing life, everything felt supported here."</p>
+                <div class="student-info">
+                    <div class="student-avatar">P</div>
+                    <div>
+                        <div class="student-name"> Praveen </div>
+                        <div class="student-year">1st Year Medical</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"Best decision ever. The community spirit here is unmatched. Every day feels like coming home to family."</p>
+                <div class="student-info">
+                    <div class="student-avatar">K</div>
+                    <div>
+                        <div class="student-name"> Shivam </div>
+                        <div class="student-year"> SSC cgl Aspirant </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"The memories I've created here will last forever. Sports tournaments, midnight snacks, study sessions—all unforgettable!"</p>
+                <div class="student-info">
+                    <div class="student-avatar">S</div>
+                    <div>
+                        <div class="student-name"> Govinda </div>
+                        <div class="student-year"> Teacher </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="testimonial-text">"More than just accommodation. It's a place where I found confidence, friendships, and my true potential."</p>
+                <div class="student-info">
+                    <div class="student-avatar">M</div>
+                    <div>
+                        <div class="student-name">Kushal</div>
+                        <div class="student-year"> UPSC aspirant </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Memory Gallery Section -->
+    <section id="photos">
+        <h2 class="section-title">Moments & Memories</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: var(--dark-text); font-size: 1.05rem;">Celebrate life, laughter, and unforgettable moments with our community</p>
+        <div class="photo-grid">
+            <div class="photo-card">
+                <img src="E:\assets\images\IMG-20260215-WA0038.jpg" alt="Festival Celebration" class="photo-image" style="object-position: center top;">
+                <div class="photo-caption">
+                    <h4>🎉 Festival Celebrations</h4>
+                    <p>Our wonderful hostel family united in joy and togetherness</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="E:\assets\images\IMG-20260130-WA0003.jpg" alt="Community Gathering" class="photo-image">
+                <div class="photo-caption">
+                    <h4>👥 Community Bonding</h4>
+                    <p>Fun times with friends and family</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="E:\assets\images\IMG-20260218-WA0006.jpg" alt="Fun Activities" class="photo-image">
+                <div class="photo-caption">
+                    <h4>🎊 Fun Activities</h4>
+                    <p>Games, events, and entertainment</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="E:\IMG-20260217-WA0014.jpg" alt="Party Night" class="photo-image">
+                <div class="photo-caption">
+                    <h4>🎈 Party Nights</h4>
+                    <p>Celebrations, cake, and unforgettable memories together</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="E:\assets\images\IMG-20260217-WA0012.jpg" alt="Party Night" class="photo-image">
+                <div class="photo-caption">
+                    <h4>📸 Memorable Moments</h4>
+                    <p>Laughter and lasting memories</p>
+                </div>
+            </div>
+
+            <div class="photo-card">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect fill='%2387CEEB' width='400' height='400'/><circle cx='200' cy='150' r='60' fill='%23FFD700'/><rect x='50' y='250' width='300' height='120' fill='%23228B22' opacity='0.7'/><polygon points='100,200 120,280 80,280' fill='%23FF6B6B'/><polygon points='200,180 230,280 170,280' fill='%238B4513'/><polygon points='300,210 320,280 280,280' fill='%234a90e2'/><circle cx='200' cy='100' r='15' fill='%23FFF'/></svg>"
+                    alt="Group Adventure" class="photo-image">
+                <div class="photo-caption">
+                    <h4>🎯 Group Adventures</h4>
+                    <p>Exciting outings and experiences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Section -->
+    <section id="join">
+        <h2 class="section-title">Ready to Join the Family?</h2>
+        <p class="join-subtitle">Come as a student, leave as a family</p>
+        <button class="join-cta" onclick="handleJoinClick()">Start Your Journey</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Home Vibe Student Hostel. Come as a student, leave as a family. 🏠</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem;">Contact: info@homevibe.com | Phone: +91-XXXX-XXXX-XXXX</p>
+    </footer>
+
+    <script>
+        // ========== Scroll Progress Bar ==========
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / totalHeight) * 100;
+            scrollProgress.style.width = scrolled + '%';
+        });
+
+        // ========== Sound Toggle ==========
+        let soundEnabled = true;
+        const soundToggle = document.getElementById('soundToggle');
+
+        function createAudio(frequency, duration, volume = 0.1) {
+            // Returns a function that plays a sound effect
+            return function() {
+                if (!soundEnabled) return;
+
+                const audioContext = new(window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.value = frequency;
+                oscillator.type = 'sine';
+
+                gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + duration);
+            };
+        }
+
+        soundToggle.addEventListener('click', function() {
+            soundEnabled = !soundEnabled;
+            soundToggle.textContent = soundEnabled ? '🔊 Sound ON' : '🔇 Sound OFF';
+
+            if (soundEnabled) {
+                playClickSound();
+            }
+        });
+
+        // Sound effects
+        const playClickSound = createAudio(800, 0.1, 0.05);
+        const playHoverSound = createAudio(600, 0.05, 0.03);
+        const playScrollSound = createAudio(440, 0.02, 0.01);
+
+        // ========== Floating Background Elements ==========
+        function createFloatingElements() {
+            const container = document.getElementById('floatingElements');
+            const elements = ['📚', '✏️', '🎓', '💡', '🏠', '⭐', '🎵'];
+
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                element.className = 'float-item';
+                element.textContent = elements[Math.floor(Math.random() * elements.length)];
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                element.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(element);
+            }
+        }
+
+        createFloatingElements();
+
+        // ========== Interactive Elements Sound ==========
+        document.querySelectorAll('.life-card').forEach(card => {
+            card.addEventListener('mouseenter', playHoverSound);
+        });
+
+        document.querySelectorAll('.cta-button, .join-cta').forEach(button => {
+            button.addEventListener('click', playClickSound);
+        });
+
+        // ========== Join Click Handler ==========
+        function handleJoinClick() {
+            playClickSound();
+            alert('Welcome! 🎉\n\nVisit our office or contact us:\n📧 info@homevibe.com\n📞 +91-XXXX-XXXX-XXXX\n\nWe\'d love to have you as part of the Home Vibe family!');
+        }
+
+        // ========== Smooth Scroll Enhancement ==========
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    playClickSound();
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ========== Intersection Observer for Animations ==========
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'inherit';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-item, .life-card, .moment-box').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ========== Ambient Background Music Simulation ==========
+        function playAmbientBackground() {
+            if (!soundEnabled) return;
+
+            const audioContext = new(window.AudioContext || window.webkitAudioContext)();
+            const now = audioContext.currentTime;
+
+            // Create a gentle ambient tone
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.value = 200;
+            oscillator.type = 'sine';
+
+            gainNode.gain.setValueAtTime(0.02, now);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, now + 3);
+
+            oscillator.start(now);
+            oscillator.stop(now + 3);
+        }
+
+        // Play ambient sound on scroll
+        let lastAmbientTime = 0;
+        window.addEventListener('scroll', function() {
+            const currentTime = Date.now();
+            if (currentTime - lastAmbientTime > 5000) {
+                // playAmbientBackground(); // Uncomment for continuous ambient
+                lastAmbientTime = currentTime;
+            }
+        });
+
+        // ========== Page Load Animation ==========
+        window.addEventListener('load', function() {
+            playClickSound();
+        });
+
+        // ========== Random Motivational Quote on Page Load ==========
+        const quotes = [
+            "Welcome to Home Vibe - Where Every Day Counts!",
+            "You're not just a number here - you're family!",
+            "Great things happen when you're surrounded by great people!",
+            "Your journey to greatness starts here at Home Vibe!"
+        ];
+
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+        console.log('🏠 %c' + randomQuote, 'color: #4a90e2; font-size: 16px; font-weight: bold;');
+
+        // ========== Touch/Hover Effects for Mobile ==========
+        if (window.matching && window.matchMedia('(max-width: 768px)').matches) {
+            document.querySelectorAll('.life-card, .testimonial-card, .moment-box').forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(1.02)';
+                });
+                card.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+        }
+
+        // ========== Typewriter Effect for Hero ==========
+        function typewriterEffect(element, text, speed = 50) {
+            let i = 0;
+            element.textContent = '';
+
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Uncomment to enable typewriter effect on hero title
+        // typewriterEffect(document.querySelector('.hero-title'), 'More Than a Hostel', 100);
+
+        // ========== Continuous Scroll Hint Animation ==========
+        function addScrollHint() {
+            const hint = document.createElement('div');
+            hint.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 2rem;
+                animation: bounce 2s infinite;
+                cursor: pointer;
+                z-index: 100;
+            `;
+            hint.textContent = '⬇️';
+            document.body.appendChild(hint);
+
+            setTimeout(() => {
+                hint.style.display = 'none';
+            }, 8000);
+        }
+
+        addScrollHint();
+
+        // ========== Performance Optimization ==========
+        // Debounce scroll events
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(function() {
+                // Heavy operations here if needed
+            }, 250);
+        });
+
+        // Lazy loading simulation
+        function lazyLoadImages() {
+            document.querySelectorAll('.gallery-image').forEach(img => {
+                let isVisible = false;
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting && !isVisible) {
+                            isVisible = true;
+                            // Trigger load animation
+                        }
+                    });
+                });
+                observer.observe(img);
+            });
+        }
+
+        lazyLoadImages();
+
+        // ========== Accessibility Enhancements ==========
+        document.querySelectorAll('button').forEach(button => {
+            button.setAttribute('aria-label', button.textContent);
+        });
+
+        // ========== Console Easter Egg ==========
+        console.log('%c🏠 Welcome to Home Vibe!', 'font-size: 20px; color: #4a90e2; font-weight: bold;');
+        console.log('%cWhere students become family 💙', 'font-size: 14px; color: #ffd700;');
+    </script>
+</body>
+
+</html>
+</script>
+</body>
+
+</html>t>
+</body>
+
+</html>
