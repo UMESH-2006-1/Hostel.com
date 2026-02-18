@@ -866,19 +866,31 @@
             }
             .hero {
                 margin-top: 40px;
-                height: 70vh;
-                padding: 0 1rem;
+                height: auto;
+                min-height: 100vh;
+                padding: 1rem;
                 position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             .hero-background {
                 background-attachment: scroll !important;
-                background-size: cover !important;
+                background-size: contain !important;
                 background-position: center center !important;
-                min-height: 100%;
+                background-repeat: no-repeat !important;
+                min-height: 100vh;
+                width: 100%;
                 will-change: background-image;
             }
             .hero-content {
                 max-width: 100%;
+                z-index: 10;
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             .hero-title {
                 font-size: 1.6rem;
