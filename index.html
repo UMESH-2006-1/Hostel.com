@@ -563,6 +563,13 @@
             background: linear-gradient(135deg, #f0f4f8 0%, var(--calm-white) 100%);
             padding: 4rem 2rem;
         }
+        /* Global Image Styles */
+        
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
         
         .photo-grid {
             display: grid;
@@ -594,6 +601,9 @@
             object-position: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: all 0.5s cubic-bezier(0.35, 0.17, 0.65, 0.83);
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
         }
         
         .photo-card:hover .photo-image {
@@ -799,6 +809,15 @@
             .photo-card {
                 border-radius: 12px;
             }
+            .photo-image {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+            }
             .photo-caption {
                 padding: 1.5rem 1rem 1rem;
             }
@@ -947,6 +966,24 @@
             .photo-card {
                 border-radius: 10px;
                 aspect-ratio: 1;
+                overflow: hidden;
+            }
+            .photo-image {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center;
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+                padding: 0;
+                margin: 0;
+            }
+            .photo-card:hover {
+                transform: translateY(-8px);
+            }
+            .photo-card:hover .photo-image {
+                transform: scale(1.05);
             }
             .photo-caption {
                 padding: 1rem 0.8rem 0.8rem;
@@ -1180,7 +1217,7 @@
             </div>
 
             <div class="photo-card">
-                <img src="IMG-20260218-WA0007.jpg" alt="Group Adventure" class="photo-image">
+                <img src="E:\assets\images\IMG_20260218_132932533[1].jpg" alt="Group Adventure" class="photo-image">
                 <div class="photo-caption">
                     <h4>🎯 Study</h4>
                     <p>Quiet study spaces and a supportive academic environment</p>
