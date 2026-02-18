@@ -87,26 +87,13 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-        
-        .sound-toggle {
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-        }
-        
-        .sound-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
-        }
         /* Hero Section */
         
         .hero {
+            /* keep hero responsive but give it more vertical space so faces appear larger */
             height: auto;
+            min-height: 60vh;
+            /* larger on desktop so people are taller */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -114,7 +101,10 @@
             color: white;
             position: relative;
             margin-top: 60px;
+            /* keeps hero below fixed nav */
             overflow: hidden;
+            padding: 0;
+            /* remove extra internal gaps */
         }
         
         .hero-background {
@@ -124,8 +114,10 @@
             width: 100%;
             height: 100%;
             background-attachment: scroll;
-            background-size: cover;
-            background-position: center;
+            background-size: auto 100%;
+            /* size by height so faces keep full height */
+            background-position: center top;
+            /* keep faces toward top */
             background-color: #1a1a2e;
             background-repeat: no-repeat;
             z-index: -2;
@@ -133,90 +125,6 @@
         
         .hero-featured-image {
             display: none;
-        }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateY(-50%) translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(-50%) translateX(0);
-            }
-        }
-        
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            display: none;
-        }
-        
-        .float-item {
-            position: absolute;
-            opacity: 0.1;
-            animation: float 15s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-50px) rotate(180deg);
-            }
-        }
-        
-        .hero-content {
-            z-index: 10;
-            animation: slideInUp 1s ease-out;
-            max-width: 800px;
-            position: relative;
-            padding: 1rem;
-        }
-        
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
-            animation: fadeInDown 1s ease-out 0.2s both;
-            letter-spacing: 2px;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            opacity: 1;
-            animation: fadeInDown 1s ease-out 0.4s both;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
-            font-weight: 500;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         .cta-button {
@@ -757,12 +665,14 @@
             }
             .hero {
                 margin-top: 50px;
-                height: 80vh;
+                min-height: 55vh;
+                /* give mobile/tablet more vertical space */
             }
             .hero-background {
                 background-attachment: scroll !important;
-                background-size: cover !important;
-                background-position: center center !important;
+                background-size: auto 110% !important;
+                /* scale by height for larger faces */
+                background-position: center top !important;
             }
             .hero-title {
                 font-size: 2.2rem;
@@ -867,6 +777,10 @@
                 padding: 0.3rem 0.6rem;
                 font-size: 0.7rem;
             }
+            /* hide sound toggle on very small screens to reduce clutter */
+            .sound-toggle {
+                display: none !important;
+            }
             .hero {
                 margin-top: 40px;
                 height: auto;
@@ -878,12 +792,25 @@
             }
             .hero-background {
                 background-attachment: scroll !important;
-                background-size: cover !important;
-                background-position: center center !important;
+                background-size: 140% !important;
+                /* zoom image so faces appear larger */
+                background-position: center top !important;
+                /* keep faces visible near top */
+                /* keep faces visible */
                 background-repeat: no-repeat !important;
                 width: 100%;
-                min-height: 500px;
+                min-height: 0;
+                /* remove forced min-height on small screens */
                 will-change: background-image;
+            }
+            /* place hero text near bottom so it doesn't cover faces */
+            .hero-content {
+                position: absolute;
+                bottom: 8%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: calc(100% - 2rem);
+                padding: 0 1rem;
             }
             .hero-content {
                 max-width: 100%;
@@ -899,9 +826,9 @@
             }
             .hero-title {
                 font-size: 1.6rem;
-                margin-bottom: 0.2rem;
+                margin-bottom: 0.1rem;
                 letter-spacing: 0px;
-                line-height: 1.2;
+                line-height: 1.1;
             }
             .hero-subtitle {
                 font-size: 0.9rem;
@@ -912,8 +839,8 @@
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             }
             p[style*="font-size: 1.1rem"] {
-                font-size: 0.8rem !important;
-                margin-bottom: 0.8rem !important;
+                font-size: 0.75rem !important;
+                margin-bottom: 0.6rem !important;
                 line-height: 1.3;
             }
             .cta-button {
@@ -1069,7 +996,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 100%), url('hostel-team.jpg'); background-size: cover; background-position: center center; background-attachment: scroll; background-repeat: no-repeat;"></div>
+        <div class="hero-background" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 100%), url('hostel-team.jpg'); background-size: auto 100%; background-position: center top; background-attachment: scroll; background-repeat: no-repeat;"></div>
         <div class="floating-elements" id="floatingElements"></div>
         <div class="hero-content">
             <h1 class="hero-title">More Than a Hostel</h1>
