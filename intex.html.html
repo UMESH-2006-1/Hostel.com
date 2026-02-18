@@ -440,7 +440,6 @@
         /* Study & Growth Zone */
         
         #growth {
-            background: linear-gradient(140deg, #1a1a2e 0%, #16213e 100%);
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
         }
@@ -464,12 +463,17 @@
         }
         
         .growth-img {
-            width: 50%;
+            width: 100%;
+            max-width: 300px;
+            height: auto;
             border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.25);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
             transition: transform 0.3s ease;
             display: block;
             margin: 0 auto;
+            object-fit: contain;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 244, 248, 0.9) 100%);
+            padding: 1rem;
         }
         
         .growth-quotes {
@@ -821,6 +825,7 @@
         
         #photos {
             background: linear-gradient(135deg, #f0f4f8 0%, var(--calm-white) 100%);
+            padding: 4rem 2rem;
         }
         
         .photo-grid {
@@ -838,7 +843,7 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
             transition: all 0.4s cubic-bezier(0.35, 0.17, 0.65, 0.83);
             aspect-ratio: 1;
-            background: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
         
         .photo-card:hover {
@@ -849,13 +854,15 @@
         .photo-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            object-position: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             transition: all 0.5s cubic-bezier(0.35, 0.17, 0.65, 0.83);
         }
         
         .photo-card:hover .photo-image {
-            transform: scale(1.25) translateY(-12px) translateX(8px) rotate(2deg);
-            filter: brightness(1.3) saturate(1.2) contrast(1.1);
+            transform: scale(1.08);
+            filter: brightness(1.1) saturate(1.1) contrast(1.05);
         }
         
         .photo-caption {
@@ -1071,7 +1078,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.35) 100%), url('E:/assets/images/hostel-team.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; background-repeat: no-repeat;"></div>
+        <div class="hero-background" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.35) 100%), url('hostel-team.jpg'); background-size: cover; background-position: center center; background-attachment: fixed; background-repeat: no-repeat;"></div>
         <div class="floating-elements" id="floatingElements"></div>
         <div class="hero-content">
             <h1 class="hero-title">More Than a Hostel</h1>
@@ -1089,7 +1096,7 @@
         <div class="growth-container">
             <!-- Left Side: Image -->
             <div>
-                <img src="E:\IMG-20260217-WA0013.jpg" alt="Blessings for discipline and growth" class="growth-img">
+                <img src="IMG-20260217-WA0013.jpg" alt="Blessings for discipline and growth" class="growth-img">
             </div>
 
             <!-- Right Side: Text Content -->
@@ -1155,7 +1162,7 @@
             </div>
             <div class="testimonial-card">
                 <div class="stars">⭐⭐⭐⭐⭐</div>
-                <p class="testimonial-text">"The facilities here are amazing, but the people make it truly special. I've made friends from 15 different countries!"</p>
+                <p class="testimonial-text">"The facilities here are amazing, but the people make it truly special"</p>
                 <div class="student-info">
                     <div class="student-avatar">R</div>
                     <div>
@@ -1170,7 +1177,7 @@
                 <div class="student-info">
                     <div class="student-avatar">P</div>
                     <div>
-                        <div class="student-name"> Praveen </div>
+                        <div class="student-name"> Praveen,Virendra Malviya </div>
                         <div class="student-year">1st Year Medical</div>
                     </div>
                 </div>
@@ -1179,7 +1186,7 @@
                 <div class="stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">"Best decision ever. The community spirit here is unmatched. Every day feels like coming home to family."</p>
                 <div class="student-info">
-                    <div class="student-avatar">K</div>
+                    <div class="student-avatar">S</div>
                     <div>
                         <div class="student-name"> Shivam </div>
                         <div class="student-year"> SSC cgl Aspirant </div>
@@ -1201,7 +1208,7 @@
                 <div class="stars">⭐⭐⭐⭐⭐</div>
                 <p class="testimonial-text">"More than just accommodation. It's a place where I found confidence, friendships, and my true potential."</p>
                 <div class="student-info">
-                    <div class="student-avatar">M</div>
+                    <div class="student-avatar">K</div>
                     <div>
                         <div class="student-name">Kushal</div>
                         <div class="student-year"> UPSC aspirant </div>
@@ -1219,7 +1226,7 @@
         <p style="text-align: center; margin-bottom: 2rem; color: var(--dark-text); font-size: 1.05rem;">Celebrate life, laughter, and unforgettable moments with our community</p>
         <div class="photo-grid">
             <div class="photo-card">
-                <img src="E:\assets\images\IMG-20260215-WA0038.jpg" alt="Festival Celebration" class="photo-image" style="object-position: center top;">
+                <img src="IMG-20260215-WA0038.jpg" alt="Festival Celebration" class="photo-image">
                 <div class="photo-caption">
                     <h4>🎉 Festival Celebrations</h4>
                     <p>Our wonderful hostel family united in joy and togetherness</p>
@@ -1227,7 +1234,7 @@
             </div>
 
             <div class="photo-card">
-                <img src="E:\assets\images\IMG-20260130-WA0003.jpg" alt="Community Gathering" class="photo-image">
+                <img src="IMG-20260130-WA0003.jpg" alt="Community Gathering" class="photo-image">
                 <div class="photo-caption">
                     <h4>👥 Community Bonding</h4>
                     <p>Fun times with friends and family</p>
@@ -1235,7 +1242,7 @@
             </div>
 
             <div class="photo-card">
-                <img src="E:\assets\images\IMG-20260218-WA0006.jpg" alt="Fun Activities" class="photo-image">
+                <img src="IMG-20260218-WA0006.jpg" alt="Fun Activities" class="photo-image">
                 <div class="photo-caption">
                     <h4>🎊 Fun Activities</h4>
                     <p>Games, events, and entertainment</p>
@@ -1243,15 +1250,15 @@
             </div>
 
             <div class="photo-card">
-                <img src="E:\IMG-20260217-WA0014.jpg" alt="Party Night" class="photo-image">
+                <img src="IMG-20260217-WA0012.jpg" alt="Party Night" class="photo-image">
                 <div class="photo-caption">
-                    <h4>🎈 Party Nights</h4>
-                    <p>Celebrations, cake, and unforgettable memories together</p>
+                    <h4>🎈 Main Building</h4>
+                    <p>Our beautiful and modern hostel building</p>
                 </div>
             </div>
 
             <div class="photo-card">
-                <img src="E:\assets\images\IMG-20260217-WA0012.jpg" alt="Party Night" class="photo-image">
+                <img src="IMG-20250901-WA0015.jpg" alt="Party Night" class="photo-image">
                 <div class="photo-caption">
                     <h4>📸 Memorable Moments</h4>
                     <p>Laughter and lasting memories</p>
@@ -1259,11 +1266,10 @@
             </div>
 
             <div class="photo-card">
-                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'><rect fill='%2387CEEB' width='400' height='400'/><circle cx='200' cy='150' r='60' fill='%23FFD700'/><rect x='50' y='250' width='300' height='120' fill='%23228B22' opacity='0.7'/><polygon points='100,200 120,280 80,280' fill='%23FF6B6B'/><polygon points='200,180 230,280 170,280' fill='%238B4513'/><polygon points='300,210 320,280 280,280' fill='%234a90e2'/><circle cx='200' cy='100' r='15' fill='%23FFF'/></svg>"
-                    alt="Group Adventure" class="photo-image">
+                <img src="IMG_20260218_132932533[1].jpg" alt="Group Adventure" class="photo-image">
                 <div class="photo-caption">
-                    <h4>🎯 Group Adventures</h4>
-                    <p>Exciting outings and experiences</p>
+                    <h4>🎯study</h4>
+                    <p>Quiet study spaces and a supportive academic environment</p>
                 </div>
             </div>
         </div>
@@ -1538,13 +1544,6 @@
         console.log('%c🏠 Welcome to Home Vibe!', 'font-size: 20px; color: #4a90e2; font-weight: bold;');
         console.log('%cWhere students become family 💙', 'font-size: 14px; color: #ffd700;');
     </script>
-</body>
-
-</html>
-</script>
-</body>
-
-</html>t>
 </body>
 
 </html>
