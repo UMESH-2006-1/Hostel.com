@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" as="image" href="hostel-team.jpg">
     <title>Home Vibe - More Than a Hostel, It's a Home</title>
     <style>
         * {
@@ -125,6 +126,8 @@
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
+            background-color: #1a1a2e;
+            background-repeat: no-repeat;
             z-index: -2;
         }
         
@@ -755,6 +758,8 @@
             }
             .hero-background {
                 background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center center !important;
             }
             .hero-title {
                 font-size: 2.2rem;
@@ -863,6 +868,14 @@
                 margin-top: 40px;
                 height: 70vh;
                 padding: 0 1rem;
+                position: relative;
+            }
+            .hero-background {
+                background-attachment: scroll !important;
+                background-size: cover !important;
+                background-position: center center !important;
+                min-height: 100%;
+                will-change: background-image;
             }
             .hero-content {
                 max-width: 100%;
