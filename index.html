@@ -106,7 +106,7 @@
         /* Hero Section */
         
         .hero {
-            height: 100vh;
+            height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -123,7 +123,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-attachment: fixed;
+            background-attachment: scroll;
             background-size: cover;
             background-position: center;
             background-color: #1a1a2e;
@@ -152,6 +152,7 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
+            display: none;
         }
         
         .float-item {
@@ -174,6 +175,8 @@
             z-index: 10;
             animation: slideInUp 1s ease-out;
             max-width: 800px;
+            position: relative;
+            padding: 1rem;
         }
         
         @keyframes slideInUp {
@@ -188,17 +191,17 @@
         }
         
         .hero-title {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
             animation: fadeInDown 1s ease-out 0.2s both;
             letter-spacing: 2px;
         }
         
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
             opacity: 1;
             animation: fadeInDown 1s ease-out 0.4s both;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
@@ -866,8 +869,8 @@
             }
             .hero {
                 margin-top: 40px;
-                height: 80vh;
-                padding: 2rem 1rem;
+                height: auto;
+                padding: 0;
                 position: relative;
                 display: flex;
                 align-items: center;
@@ -875,10 +878,11 @@
             }
             .hero-background {
                 background-attachment: scroll !important;
-                background-size: contain !important;
-                background-position: center bottom !important;
+                background-size: cover !important;
+                background-position: center center !important;
                 background-repeat: no-repeat !important;
-                height: 100%;
+                width: 100%;
+                min-height: 500px;
                 will-change: background-image;
             }
             .hero-content {
@@ -890,31 +894,32 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 0.5rem;
+                gap: 0;
+                padding: 1.5rem 1rem;
             }
             .hero-title {
-                font-size: 1.8rem;
-                margin-bottom: 0.3rem;
-                letter-spacing: 0.5px;
+                font-size: 1.6rem;
+                margin-bottom: 0.2rem;
+                letter-spacing: 0px;
                 line-height: 1.2;
             }
             .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 0.8rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.5rem;
             }
             .hero-title,
             .hero-subtitle {
                 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
             }
             p[style*="font-size: 1.1rem"] {
-                font-size: 0.85rem !important;
-                margin-bottom: 1rem !important;
-                line-height: 1.4;
+                font-size: 0.8rem !important;
+                margin-bottom: 0.8rem !important;
+                line-height: 1.3;
             }
             .cta-button {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
-                margin-top: 0.5rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+                margin-top: 0.3rem;
             }
             section {
                 padding: 2.5rem 1rem;
@@ -1064,7 +1069,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.25) 100%), url('hostel-team.jpg'); background-size: contain; background-position: center center; background-attachment: scroll; background-repeat: no-repeat;"></div>
+        <div class="hero-background" style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 100%), url('hostel-team.jpg'); background-size: cover; background-position: center center; background-attachment: scroll; background-repeat: no-repeat;"></div>
         <div class="floating-elements" id="floatingElements"></div>
         <div class="hero-content">
             <h1 class="hero-title">More Than a Hostel</h1>
