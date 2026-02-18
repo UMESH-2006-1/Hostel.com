@@ -721,46 +721,255 @@
         }
         
         @media (max-width: 768px) {
-            .nav-links {
+            body {
+                font-size: 14px;
+            }
+            nav {
+                padding: 0.8rem 1rem;
                 gap: 1rem;
-                font-size: 0.9rem;
+            }
+            .logo {
+                font-size: 1.3rem;
+            }
+            .nav-links {
+                gap: 0.5rem;
+                font-size: 0.85rem;
+            }
+            .sound-toggle {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+            .hero {
+                margin-top: 50px;
+                height: 80vh;
+            }
+            .hero-background {
+                background-attachment: scroll !important;
             }
             .hero-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
+                margin-bottom: 0.8rem;
             }
             .hero-subtitle {
-                font-size: 1rem;
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+            section {
+                padding: 3rem 1.5rem;
             }
             .section-title {
-                font-size: 1.8rem;
+                font-size: 2rem;
+                margin-bottom: 2rem;
             }
             .growth-container {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
-            .hero-featured-image {
-                width: 280px;
-                height: 280px;
-                right: 2%;
+            .growth-img {
+                max-width: 100%;
+                margin-bottom: 1rem;
+            }
+            .moments-flow {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .moment-box {
+                padding: 1.5rem;
+                min-width: 100%;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 0.5rem 0;
+            }
+            .testimonials {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .testimonial-card {
+                padding: 1.5rem;
+            }
+            .photo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+            .photo-card {
+                border-radius: 12px;
+            }
+            .photo-caption {
+                padding: 1.5rem 1rem 1rem;
+            }
+            .photo-caption h4 {
+                font-size: 1rem;
+            }
+            .photo-caption p {
+                font-size: 0.8rem;
+            }
+            .join-cta {
+                padding: 1rem 2rem;
+                font-size: 0.95rem;
+            }
+            footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            footer p {
+                margin-top: 0.8rem;
             }
         }
         
         @media (max-width: 480px) {
+            body {
+                font-size: 13px;
+            }
             nav {
-                flex-direction: column;
-                gap: 1rem;
+                flex-direction: row;
+                padding: 0.6rem 0.8rem;
+                justify-content: space-between;
+            }
+            .logo {
+                font-size: 1.1rem;
             }
             .nav-links {
-                flex-direction: column;
-                gap: 0.5rem;
+                display: none;
+            }
+            .sound-toggle {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.7rem;
             }
             .hero {
-                margin-top: 120px;
+                margin-top: 40px;
+                height: 70vh;
+                padding: 0 1rem;
+            }
+            .hero-content {
+                max-width: 100%;
             }
             .hero-title {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+                margin-bottom: 0.5rem;
+                letter-spacing: 0.5px;
+            }
+            .hero-subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+            .hero-title,
+            .hero-subtitle {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            }
+            p[style*="font-size: 1.1rem"] {
+                font-size: 0.9rem !important;
+                margin-bottom: 1.5rem !important;
+            }
+            .cta-button {
+                padding: 0.7rem 1.3rem;
+                font-size: 0.9rem;
             }
             section {
-                padding: 2rem 1rem;
+                padding: 2.5rem 1rem;
+            }
+            .section-title {
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+            }
+            .section-title::after {
+                width: 40px;
+                height: 3px;
+            }
+            .growth-container {
+                gap: 1.5rem;
+            }
+            .growth-img {
+                max-width: 100%;
+                margin: 0;
+                padding: 0.5rem;
+            }
+            .quote-box {
+                padding: 1rem;
+                margin-bottom: 1rem;
+                border-left-width: 3px;
+            }
+            .quote-box p {
+                font-size: 0.9rem;
+                font-style: italic;
+            }
+            .moment-box {
+                padding: 1.2rem;
+                margin-bottom: 0.5rem;
+            }
+            .moment-time {
+                font-size: 1.8rem;
+                margin-bottom: 0.3rem;
+            }
+            .moment-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+            .moment-desc {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+            .testimonial-card {
+                padding: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            .stars {
+                font-size: 1rem;
+                margin-bottom: 0.8rem;
+            }
+            .testimonial-text {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+                line-height: 1.5;
+            }
+            .student-info {
+                gap: 0.8rem;
+            }
+            .student-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+            .student-name {
+                font-size: 0.95rem;
+            }
+            .student-year {
+                font-size: 0.8rem;
+            }
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            .photo-card {
+                border-radius: 10px;
+                aspect-ratio: 1;
+            }
+            .photo-caption {
+                padding: 1rem 0.8rem 0.8rem;
+                bottom: 0;
+            }
+            .photo-caption h4 {
+                font-size: 0.9rem;
+                margin-bottom: 0.3rem;
+            }
+            .photo-caption p {
+                font-size: 0.75rem;
+                line-height: 1.3;
+            }
+            .join-cta {
+                padding: 0.9rem 1.8rem;
+                font-size: 0.9rem;
+            }
+            footer {
+                padding: 1.2rem 0.8rem;
+                font-size: 0.85rem;
+            }
+            footer p {
+                margin-top: 0.6rem;
             }
         }
         /* Smooth Transitions */
@@ -833,7 +1042,7 @@
             </div>
             <div class="flow-arrow">→</div>
             <div class="moment-box">
-                <div class="moment-time">📚 ~10 AM</div>
+                <div class="moment-time">📚~10 AM</div>
                 <div class="moment-title">Study Hour</div>
                 <div class="moment-desc">Focused minds, quiet libraries, and coffee. This is where dreams take shape.</div>
             </div>
@@ -971,7 +1180,7 @@
             </div>
 
             <div class="photo-card">
-                <img src="IMG_20260218_132932533[1].jpg" alt="Group Adventure" class="photo-image">
+                <img src="IMG-20260218-WA0007.jpg" alt="Group Adventure" class="photo-image">
                 <div class="photo-caption">
                     <h4>🎯 Study</h4>
                     <p>Quiet study spaces and a supportive academic environment</p>
